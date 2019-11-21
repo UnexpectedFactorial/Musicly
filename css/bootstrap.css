@@ -63,6 +63,12 @@ body {
   background-color: #fff;
 }
 
+.trackgradient {
+ background-image: linear-gradient(to right, red , yellow);
+  height: 380px; 
+  width:100%;
+}
+
 .trend {
   color: #333;
 }
@@ -4182,6 +4188,10 @@ input[type="button"].btn-block {
   font-size: 1.45rem;
   line-height: inherit;
   white-space: nowrap;
+}
+
+#navBarSearchForm {
+  width:390px !important;
 }
 
 .navbar-brand:hover, .navbar-brand:focus {
