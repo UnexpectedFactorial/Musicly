@@ -43,7 +43,7 @@ if (isset($_POST['signup-submit'])) {
    
 
     // Searches database for identical usernames
-    $sql = "SELECT uidUsers FROM users WHERE uidUsers=?;";
+    $sql = "SELECT Username FROM users WHERE Username='$username';";
     // create sql statement
     $stmt = mysqli_stmt_init($conn);
     // check for errors
@@ -72,7 +72,7 @@ if (isset($_POST['signup-submit'])) {
        
 
         //sending user data to the databse
-        $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers) VALUES (?, ?, ?);";
+        $sql = "INSERT INTO users (Username, User_email, User_Pwd) VALUES ('$username', '$email', '$password');";
         // connects
         $stmt = mysqli_stmt_init($conn);
         // prepare sql

@@ -2,7 +2,7 @@
 $dBServername = "localhost";
 $dBUsername = "root";
 $dBPassword = "";
-$dBName = "loginsystem";
+$dBName = "musiclydb";
 
 // Create connection
 $conn = mysqli_connect($dBServername, $dBUsername, $dBPassword, $dBName);
