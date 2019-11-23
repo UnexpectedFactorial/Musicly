@@ -4,7 +4,7 @@ $artist = mysqli_real_escape_string($conn,$_POST['artistName']);
 $genre = mysqli_real_escape_string($conn,$_POST['genre']);
 
 
-    if (isset($_SESSION)){ //checks for login session
+    if (!isset($_SESSION['TEST'])){ //checks for login session
         if(isset($_POST['submit'])){
            $file = $_FILES['file'];
 
@@ -15,7 +15,7 @@ $genre = mysqli_real_escape_string($conn,$_POST['genre']);
             $fileType = $_FILES['file']['type'];
 
             $fileEXT = explode('.', $fileName);
-            $fileACTE = strtolower(end($fileEXT));
+            $fileACTE = strtolower(end($fileEXT)); //these two lines pull the extention from the file name, letting us know the file type. 
 
             $allowed = array('mp3','wav');
 
@@ -27,25 +27,25 @@ $genre = mysqli_real_escape_string($conn,$_POST['genre']);
                         move_uploaded_file($fileTmpName, $fileLocation);
 
                         $sql = "INSERT INTO songs (song_name,artist,genre,file_name) VALUES ('$song_name','$artist','$genre','$fileNameNew');"; //inserts form data into mySQL database
-                        mysqli_query($conn,$sql); 
+                        mysqli_query($conn,$sql); //inserts data into the mySQL table 
 
-                        header("Location: index.php?uploadsuccess");
+                        header("Location: ../index.php?uploadsuccess");
 
                     }
                     else{
-                        echo "File is too big";
+                        header("Location: ../invalidsize.php");
                     }
                 }
                 else{
-                    echo "Error encountered";
+                    header("Location: ../fileerror.php");
                 }
             }
             else{
-                header("Location: invalidfile.php");
+                header("Location: ../invalidfile.php");
             }
         }
     }
     else{
-        header("Location: ../upload.php?error=usertaken&name=".$fileName);
+        header("Location: ../invalidacc.php");
     }
 ?>
