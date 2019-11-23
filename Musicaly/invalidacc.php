@@ -1,6 +1,5 @@
 <?php
   require "includes/dbh.inc.php";
-    session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,11 +10,12 @@
     
 <body>
     <?php
-    require "header.php";
-    $_SESSION['TEST'] = "working";
+  // To make sure we don't need to create the header section of the website on multiple pages, we instead create the header HTML markup in a separate file which we then attach to the top of every HTML page on our website. In this way if we need to make a small change to our header we just need to do it in one place. This is a VERY cool feature in PHP!
+  require "header.php";
     ?>
     <div id="uploader"> <!--Song Uploader-->
-        <h2>Upload a File</h2>
+        <center><h2>Upload a File</h2></center>
+        <p id="invalid">Please login or signup to upload music!</p>
         <p>Please only upload only mp3 files under 5MB</p>
         <form action="includes/upload.inc.php" method="POST" enctype="multipart/form-data">
             
@@ -30,7 +30,7 @@
               
             <br>
             <br>
-            <input type="file" name="file" accept="audio/*">
+            <input type="file" name="file" accept="audio/mp3">
              <br>
             <br>
             <button type="submit" name="submit" id="submit">Upload File</button>
