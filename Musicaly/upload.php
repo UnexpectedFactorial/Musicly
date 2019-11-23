@@ -1,6 +1,6 @@
 <?php
   require "includes/dbh.inc.php";
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,9 +12,10 @@
 <body>
     <?php
     require "header.php";
-    $_SESSION['TEST'] = "working";
+    //$_SESSION['TEST'] = 1; (Test session)
     ?>
     <div id="uploader"> <!--Song Uploader-->
+        <?php// echo "Pageviews = ". $_SESSION['TEST']; ?>
         <h2>Upload a File</h2>
         <p>Please only upload only mp3 files under 5MB</p>
         <form action="includes/upload.inc.php" method="POST" enctype="multipart/form-data">
