@@ -4,7 +4,7 @@ $artist = mysqli_real_escape_string($conn,$_POST['artistName']);
 $genre = mysqli_real_escape_string($conn,$_POST['genre']);
 
 
-    if (!isset($_SESSION['TEST'])){ //checks for login session
+    if (!isset($_SESSION['TEST'])){ //checks for login session(currently testing)
         if(isset($_POST['submit'])){
            $file = $_FILES['file'];
 
