@@ -192,7 +192,6 @@ h1 {
 }
 
 body {
-    background-color:white;
     font-family: "Lucida Sans Unicode";
     margin:0;
 }
@@ -210,8 +209,7 @@ body {
 }
 
 #submit{
-    background: rgb(240,77,245);
-    background: linear-gradient(90deg, rgba(240,77,245,1) 0%, rgba(255,188,0,1) 100%);
+    background-color: black;
     font-weight: bolder;
     border-radius: 50px;
     border:0px;
@@ -222,7 +220,7 @@ body {
 }
 
 #submit:hover{
-    background-color:rgb(240,77,245);
+    background-color:#AAAAAA;
     cursor:pointer;
     transition-duration: 500ms;
     color:black;
@@ -253,4 +251,11 @@ body {
 #uploader input[type="text"]:focus{
     background-color:#bbbbbb;
     transition-duration: 250ms;
+}
+
+#invalid{
+    color:red;
+    background-color: #ecbebe;
+    border-radius: 5px;
+    border: 2px solid red;
 }
