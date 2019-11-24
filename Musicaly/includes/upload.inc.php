@@ -2,6 +2,7 @@
 $song_name = mysqli_real_escape_string($conn,$_POST['songName']);
 $artist = mysqli_real_escape_string($conn,$_POST['artistName']);
 $genre = mysqli_real_escape_string($conn,$_POST['genre']);
+$uploader = $SESSION['uid'];
 
 
     if (!isset($_SESSION['TEST'])){ //checks for login session(currently testing)
@@ -26,7 +27,7 @@ $genre = mysqli_real_escape_string($conn,$_POST['genre']);
                         $fileLocation = 'uploads/'.$fileNameNew;
                         move_uploaded_file($fileTmpName, $fileLocation);
 
-                        $sql = "INSERT INTO songs (song_name,artist,genre,file_name) VALUES ('$song_name','$artist','$genre','$fileNameNew');"; //inserts form data into mySQL database
+                        $sql = "INSERT INTO songs (song_name,artist,genre,file_name,uploader_id) VALUES ('$song_name','$artist','$genre','$fileNameNew');"; //inserts form data into mySQL database
                         mysqli_query($conn,$sql); //inserts data into the mySQL table 
 
                         header("Location: ../index.php?uploadsuccess");
