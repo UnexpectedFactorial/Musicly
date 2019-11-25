@@ -27,7 +27,7 @@
 
         <p>The current rating is:</p>
         <?php
-            $currentsong = 3;//please replace this value with a session of the song_id
+            $currentsong = 2;//please replace this value with a session of the song_id
             $sql = "SELECT ROUND(AVG(rating),2) AS avgrating FROM ratingsystem WHERE song_id = $currentsong;"; //selects the average of the rating column of a specific song
             $result = mysqli_query($conn,$sql);
 
