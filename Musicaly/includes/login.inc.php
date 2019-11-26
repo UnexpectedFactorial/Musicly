@@ -23,7 +23,7 @@ if (isset($_POST['login-submit'])) {
    
 
     // connect to SQL and prepare variables for passing user data
-    $sql = "SELECT * FROM users WHERE uidUsers=? OR emailUsers=?;";
+    $sql = "SELECT * FROM users WHERE Username=? OR emailUsers=?;";
    
     $stmt = mysqli_stmt_init($conn);
     // generate SQL statement and check for errors
@@ -48,7 +48,7 @@ if (isset($_POST['login-submit'])) {
       // Tassign result to variable
       if ($row = mysqli_fetch_assoc($result)) {
         // check for matching password in database
-        $pwdCheck = password_verify($password, $row['pwdUsers']);
+        $pwdCheck = password_verify($password, $row['User_Pwd']);
 		
         // if no match throw an erroer
         if ($pwdCheck == false) {
@@ -63,9 +63,9 @@ if (isset($_POST['login-submit'])) {
           // create a session
           session_start();
           // And now create the session variables.
-          $_SESSION['id'] = $row['idUsers'];
-          $_SESSION['uid'] = $row['uidUsers'];
-          $_SESSION['email'] = $row['emailUsers'];
+          $_SESSION['id'] = $row['User_id'];
+          $_SESSION['uid'] = $row['Username'];
+          $_SESSION['email'] = $row['User_Email'];
           // Now the user is registered as logged in redirect to index succcesful
           header("Location: ../index.php?login=success");
           exit();
