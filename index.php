@@ -1,32 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Musicly</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/fontawesome.css" rel="stylesheet"> 
-		<link href="css/all.css" rel="stylesheet"> 
-
-	</head>
-	<body>
-		<div class="container-fluid" style="background-color: #f2f2f2;">
-			<div style="background-color: #fff">
-				<nav class="navbar navbar-expand-lg navbar-dark static-top">
-					<div class="container-fluid">
-						<a class="navbar-brand" href="#">Musicly</a>
-						<ul class="navbar-nav ml-auto">
-							<li class="nav-item">
-								<button type="button" class="btn btn-outline-primary btn-sm mr-1">Sign in</button>
-							</li>
-							<li class="nav-item">
-								<button type="button" class="btn btn-primary btn-sm">Create account</button>
-							</li>
-						</ul>
-					</div>
-				</nav>
+<?php
+include 'view/main_header.php';
+?>
 			
 
-				<div id="slides" class="carousel slide" data-ride="carousel">
+				<div class="carousel slide" data-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<img src="images/concert.jpg">
@@ -38,9 +15,9 @@
 						</div>
 					</div>
 				</div>
-				<form class="mx-2 my-auto d-inline">
-		            <div class="input-group">
-		                <input type="text" class="form-control form-control-lg" placeholder="Search for artists, tracks">
+				<form class="mx-2 my-auto d-inline ">
+		            <div class="input-group row justify-content-center">
+		                <input type="text" class="form-control col-7 form-control-lg" placeholder="Search for artists, tracks">
 		                <span class="input-group-append">
 		                <button class="btn btn-outline-secondary border" type="button">
 		                    <i class="fa fa-search"></i>
@@ -49,7 +26,7 @@
 		            </div>
 		        </form>
 
-				<h4 class="text-center trend mt-5">Hear what's trending in the Musicly community</h4>
+				<h4 class="text-center trend mt-5">Hear what's trending on Musicly</h4>
 
 				<div class="container">
 					<div class="row text-center mt-5">
