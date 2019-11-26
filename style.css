@@ -1,0 +1,77 @@
+body{
+    padding-bottom: 35px;
+}
+#uploader {
+    background-color:#cccccc;
+    color:black;
+    border-radius: 5px;
+    width:75%;
+    margin:auto;
+    height:100%;
+    padding:5px;
+    padding-bottom:15px;
+    
+}
+
+#submit{
+    background-color: black;
+    font-weight: bolder;
+    border-radius: 50px;
+    border:0px;
+    padding:15px;
+    width:100%;
+    transition-duration: 500ms;
+    color:white;
+}
+
+#submit:hover{
+    background-color:#AAAAAA;
+    cursor:pointer;
+    transition-duration: 500ms;
+    color:black;
+}
+
+#uploader input[type="text"]{
+    width:95%;
+    padding:15px;
+    padding-right:0px;
+    font-size: 16px;
+    background-color:#cccccc;
+    border: none;
+    border-bottom:1px solid #666666;
+    color:black;
+    display:block;
+    transition-duration: 250ms;
+}
+
+#uploader input[type="file"]{
+    background-color:#aaaaaa;
+    color:black;
+    border-radius: 15px;
+    padding:10px;
+    padding-right:0px;
+    height: 50px;
+}
+
+#uploader input[type="text"]:focus{
+    background-color:#bbbbbb;
+    transition-duration: 250ms;
+}
+
+#invalid{
+    color:red;
+    background-color: #ecbebe;
+    border-radius: 5px;
+    border: 2px solid red;
+}
+
+#music-player {
+    background-color:#CCCCCC;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    padding:5px;
+}
+#music-player button{
+    border-radius: 15px;
+}

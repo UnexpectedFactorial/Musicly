@@ -589,8 +589,6 @@ pre code {
 
 .container-fluid {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -6272,6 +6270,7 @@ a.close.disabled {
 .carousel-item-next,
 .carousel-item-prev {
   display: block;
+  height: 500px;
 }
 
 .carousel-item-next:not(.carousel-item-left),
