@@ -58,7 +58,7 @@ if (isset($_POST['login-submit'])) {
         }
         // for succesful login
         else if ($pwdCheck == true) {
-
+        
           
           // create a session
           session_start();
@@ -66,7 +66,12 @@ if (isset($_POST['login-submit'])) {
           $_SESSION['id'] = $row['User_Id'];
           $_SESSION['uid'] = $row['Username'];
           $_SESSION['email'] = $row['User_Email'];
-          $_SESSION['status'] = '1';    
+          $_SESSION['status'] = '1';
+            
+            if ($row['isAdmin'] == 1){
+                $_SESSION['admin'] = '1';
+            }
+
           // Now the user is registered as logged in redirect to index succcesful
           header("Location: ../index.php?login=success");
           exit();

@@ -27,7 +27,7 @@ $genre = mysqli_real_escape_string($conn,$_POST['genre']);
             $allowed = array('mp3','wav');
                 if (in_array($fileACTE, $allowed)){ //uploaded file verification
                     if($fileError === 0){ //verifies successful file upload
-                        if($fileSize < 5000000){ //limits file size to 5MB
+                        if($fileSize < 20000000){ //limits file size to 20MB
                             $fileNameNew = uniqid('',true).".".$fileACTE;
                             $fileLocation = '../uploads/song/'.$fileNameNew;
                             move_uploaded_file($fileTmpName, $fileLocation);

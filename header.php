@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="description" content="This is an example of a meta description. This will often show up in search results.">
     <meta name=viewport content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Musicly</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -24,7 +24,7 @@
         <ul>
           <li><a href="index.php">Home</a></li>
           <li><a href="upload.php">Upload Music</a></li>
-          <li><a href="songs.php">Listen to Songs</a></li>
+          <li><a href="song-list.php">Listen to Songs</a></li>
         </ul>
       </nav>
       <div class="header-login">
@@ -45,9 +45,15 @@
           <a href="signup.php" class="header-signup">Signup</a>';
         }
         else if (isset($_SESSION['id'])) {
+            if (isset($_SESSION['admin'])){
+            echo '<form action="includes/admin-redir.inc.php" method="post">
+                <button type="submit" name="admin">Admin</button>
+            </form>';
+            }
           echo '<form action="includes/logout.inc.php" method="post">
             <button type="submit" name="login-submit">Logout</button>
           </form>';
+           
         }
         ?>
       </div>
