@@ -51,7 +51,8 @@
             echo "<tr><td>Song Name</td><td>Artist</td><td>Options</td></tr>\n";
                 while($row = mysqli_fetch_assoc($result)){
                     $filelocation = "uploads/song/" . $row['File_Name'];
-                    echo "<tr><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td><audio controls id='player' src='$filelocation'></td></tr>\n";
+                    $songid = $row['Song_Id'];
+                    echo "<tr><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td><a href = 'songs.php?id=$songid'>Link</a></td></tr>\n";
                 }
             echo "</table>";
         ?>
@@ -66,15 +67,15 @@
             echo "<tr><td>Song Name</td><td>Artist</td><td>Options</td></tr>\n";
                 while($row = mysqli_fetch_assoc($result)){
                     $filelocation = "uploads/song/" . $row['File_Name'];
-                    echo "<tr><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td><a href='#' data-value='$filelocation'>play</a></td></tr>\n";
+                    $songid = $row['Song_Id'];
+                    echo "<tr><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td><a href = 'songs.php?id=$songid'>Link</a></td></tr>\n";
                 }
             echo "</table>";
         ?>
     </div>
 
     <div id="Search" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
+        <h1>SEARCH HERE</h1>
     </div>
     
     

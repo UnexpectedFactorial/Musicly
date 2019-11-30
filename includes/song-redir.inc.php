@@ -5,8 +5,8 @@ $dBUsername = "root";
 $dBPassword = "";
 $dBName = "musiclydb";
 $conn = mysqli_connect($dBServername, $dBUsername, $dBPassword, $dBName);
-
-        if(isset($_POST['admin'])){
-           header ("Location: ../admin.php");
+$songid = 1;
+        if(isset($_POST['song'])){
+           header ("Location: ../songs.php?'$songid'");
         };
 ?>
