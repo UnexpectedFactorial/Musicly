@@ -5,7 +5,13 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
-    <title>Listen</title>
+    <?php
+        $song_id = $_GET['id'];
+        $sql = "SELECT * FROM songs WHERE Song_Id = $song_id;";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result);
+        echo "<title>{$row['Song_Name']}</title>"
+    ?>
 </head>
     
 <body>
@@ -17,8 +23,17 @@
     $row = mysqli_fetch_assoc($result);
     $file_name = $row['File_Name'];
     $_SESSION['song_id'] = $song_id;
+    
     echo "
-        <audio controls id='player' src='uploads/song/$file_name'></audio>
+        <div>
+            <h2>{$row['Song_Name']}</h2>
+            <h3>by {$row['Song_Artist']}</h3>
+            <audio controls id='player' src='uploads/song/$file_name'></audio>
+            <script>
+                var audio = document.getElementById('player');
+                audio.volume = 0.5; 
+            </script>
+        </div>
         "
         ?>
     <div id="song-wrapper">

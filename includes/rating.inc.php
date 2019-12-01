@@ -10,7 +10,7 @@ session_start();
     $userrating = $_POST['rating'];
     $song_id = $_SESSION['song_id'];
     $user_id = $_SESSION['id'];//insert specific user id here
-$sql = "SELECT * FROM songrating where user_id=$user_id AND Song_Id=$song_id;";
+    $sql = "SELECT * FROM songrating where user_id=$user_id AND Song_Id=$song_id;";
     $check = mysqli_query($conn,$sql);//checks if the user has rated the song before
     $checkusers = mysqli_num_rows($check);
 
