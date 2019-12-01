@@ -10,21 +10,36 @@ session_start();
     $userrating = $_POST['rating'];
     $song_id = $_SESSION['song_id'];
     $user_id = $_SESSION['id'];//insert specific user id here
-    $check = mysqli_query($conn,"SELECT * FROM ratingsystem where user_id=$user_id and song_id='$song_id'");//checks if the user has rated the song before
+$sql = "SELECT * FROM songrating where user_id=$user_id AND Song_Id=$song_id;";
+    $check = mysqli_query($conn,$sql);//checks if the user has rated the song before
     $checkusers = mysqli_num_rows($check);
 
     if (isset($_SESSION['id'])) {    
-        if(!$checkusers > 0){
-            $sql = "UPDATE ratingsystem SET rating = '$userrating' WHERE user_id = '$user_id'";
-                        mysqli_query($conn,$sql);
-                        header('Location: ../song-list.php?ratingupdated');
+        if($checkusers > 0){
+            $sql = "UPDATE songrating SET rating = '$userrating' WHERE User_Id = '$user_id'";
+            mysqli_query($conn,$sql);
+            
+            $sql = "SELECT ROUND(AVG(rating),2) AS avgrating FROM songrating WHERE song_id = $song_id;"; //selects the average of the rating column of a specific song
+            $result = mysqli_query($conn,$sql);
+            $row = mysqli_fetch_assoc($result);
+            $sql = "UPDATE songs SET Avg_Rating = {$row['avgrating']} WHERE Song_Id = '$song_id'";
+            mysqli_query($conn,$sql);
+                        
+            header('Location: ../song-list.php?ratingupdated');
         }
         else{
             if(isset($_POST['submit'])){
 
-                        $sql = "INSERT INTO songrating (rating,user_id,Song_Id) VALUES ('$userrating','$user_id','$song_id');";
-                        mysqli_query($conn,$sql);
-                        header('Location: ../song-list.php?ratingsaved');
+                $sql = "INSERT INTO songrating (rating,user_id,Song_Id) VALUES ('$userrating','$user_id','$song_id');";
+                mysqli_query($conn,$sql);
+                
+                $sql = "SELECT ROUND(AVG(rating),2) AS avgrating FROM songrating WHERE song_id = $song_id;"; //selects the average of the rating column of a specific song
+                $result = mysqli_query($conn,$sql);
+                $row = mysqli_fetch_assoc($result);
+                $sql = "UPDATE songs SET Avg_Rating = {$row['avgrating']} WHERE Song_Id = '$song_id'";
+                mysqli_query($conn,$sql);
+                        
+                header('Location: ../song-list.php?ratingsaved');
             }
         }
     }

@@ -5,7 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
-    <title>Upload A Song</title>
+    <title>Listen</title>
 </head>
     
 <body>
@@ -45,7 +45,6 @@
                 $result = mysqli_query($conn,$sql);
 
                     while($row = mysqli_fetch_assoc($result)){
-                        //echo $row['avgrating'];
                         if ($row['avgrating'] == 0){
                             echo "No Ratings Yet!"; //shows up if there hasnt been any ratings for the current song
                         }

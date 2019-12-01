@@ -60,15 +60,16 @@
 
     <div id="Top 10" class="tabcontent">
         <?php
-            $sql = "SELECT * FROM songs;";
+            $sql = "SELECT * FROM songs ORDER BY Avg_Rating DESC LIMIT 10;";
             $result = mysqli_query($conn,$sql);
-        
+            $counter = 1;
             echo "<table border='1'>";
-            echo "<tr><td>Song Name</td><td>Artist</td><td>Options</td></tr>\n";
+            echo "<tr><td>Place</td><td>Song Name</td><td>Artist</td><td>Options</td></tr>\n";
                 while($row = mysqli_fetch_assoc($result)){
                     $filelocation = "uploads/song/" . $row['File_Name'];
                     $songid = $row['Song_Id'];
-                    echo "<tr><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td><a href = 'songs.php?id=$songid'>Link</a></td></tr>\n";
+                    echo "<tr><td>$counter</td><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td><a href = 'songs.php?id=$songid'>Link</a></td></tr>\n";
+                    $counter++;
                 }
             echo "</table>";
         ?>
