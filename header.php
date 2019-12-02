@@ -51,9 +51,19 @@
                 <button type="submit" name="admin">Admin</button>
             </form>';
             }
-          echo '<form action="includes/logout.inc.php" method="post">
+            if ($_SESSION['id'] == 0){
+                echo '<form action="includes/login.inc.php" method="post">
+            <input type="text" name="mailuid" placeholder="E-mail/Username">
+            <input type="password" name="pwd" placeholder="Password">
+            <button type="submit" name="login-submit">Login</button>
+            </form>
+            <a href="signup.php" class="header-signup">Signup</a>';
+            }
+          else{
+              echo '<form action="includes/logout.inc.php" method="post">
             <button type="submit" name="login-submit">Logout</button>
           </form>';
+          }
            
         }
         ?>

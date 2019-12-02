@@ -28,7 +28,6 @@
         <div id='songplayer'>
             <h2>{$row['Song_Name']}</h2>
             <h3>by {$row['Song_Artist']}</h3>
-            <p>uploaded by: {$row['Uploader_id']}</p>
             <audio controls id='player' src='uploads/song/$file_name' style='bottom:0;'></audio>
             <script>
                 var audio = document.getElementById('player');
@@ -69,27 +68,24 @@
                         }
                     }
             ?>
+            <p style="color:green;">Rating successfully updated!</p>
         </div>
         
         <div id="comments">
-            <form action="includes/comment.inc.php" METHOD="POST" enctype="multipart/form-data" id="comment-submit" autocomplete="off">
+            <form action="includes/comment.inc.php" METHOD="POST" enctype="multipart/form-data" id="comment-submit">
                 <label>Please remember to be civil!</label><br>
                 <input type="text" name="comment"><br>
                 <button type="submit" name="submit">Submit Your Comment</button>
             </form>
             
             <?php
-            if(!isset($_SESSION['id'])){
-                $_SESSION['id'] = 0;
-            }
-            
             $sql = "SELECT * FROM commentdb WHERE song_id = $song_id;";
             $result = mysqli_query($conn,$sql);
+        
             echo "<table class='commenttable'>";
             echo "<tr><td class='cth'>User</td><td class='cth' style='width:100%;'>Comment</td><td class='cth'>Options</td></tr>\n";
                 while($row = mysqli_fetch_assoc($result)){
                     $songid = $row['Song_Id'];
-                    $comment_id = $row['Comment_Id'];
                     echo "<tr><td>{$row['Username']}</td><td>{$row['comment_text']}</td><td><a href = 'commentdelete.php?id=$songid&cid=$comment_id&uid={$_SESSION['id']}'>Delete</a></td></tr>\n";
                 }
             echo "</table>";

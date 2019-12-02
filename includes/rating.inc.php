@@ -25,7 +25,7 @@ session_start();
             $sql = "UPDATE songs SET Avg_Rating = {$row['avgrating']} WHERE Song_Id = '$song_id'";
             mysqli_query($conn,$sql);
                         
-            header('Location: ../song-list.php?ratingupdated');
+            header('Location: ../songs-ratingupdate.php?id=' . $song_id);
         }
         else{
             if(isset($_POST['submit'])){
@@ -39,11 +39,11 @@ session_start();
                 $sql = "UPDATE songs SET Avg_Rating = {$row['avgrating']} WHERE Song_Id = '$song_id'";
                 mysqli_query($conn,$sql);
                         
-                header('Location: ../song-list.php?ratingsaved');
+                header('Location: ../songs-ratingsuccess.php?id=' . $song_id);
             }
         }
     }
     else if (!isset($_SESSION['id'])) {
-        header('Location: ../song-list.php?nologin');
+        header('Location: ../songs-nologin.php?id=' . $song_id);
     }
 ?>

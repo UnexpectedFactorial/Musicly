@@ -295,12 +295,21 @@ font-family:arial;
 } 
 #song-wrapper{
     width:100%;
+    display: flex;
 }
 #ratings{
-    width:25%;
-    background-color: grey;
+    width:15%;
+    border-right:1px grey solid;
 }
-
+#comments{
+    width:75%;
+}
+#comment-submit{
+    border-bottom:2px grey solid;
+}
+#commenttable tr:nth-child(even){
+    background-color: #d5d5d5;
+}
 #searchform input[type="text"]{
     width:50%;
     padding:15px;
@@ -353,4 +362,9 @@ font-family:arial;
 }
 .songlink{
     text-align: center;
+}
+#songplayer{
+    background-color:grey;
+    padding-top:150px;
+    bottom: 0;
 }
