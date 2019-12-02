@@ -1,8 +1,12 @@
 <?php
   require "header.php";
-  if(isset($_POST['delete'])){
-    $sql = "DELETE FROM songs WHERE Song_Id='$_GET[Song_Id]'";
-  }
+  
+ if(isset($_GET['Song_Id'])){
+  
+  //$sql = "DELETE FROM `songs` WHERE `songs`.`Song_Id` = 2";
+  $sql = "DELETE FROM `songs` WHERE `songs`.`Song_Id` = 3";  
+  
+ }
   
   
   
