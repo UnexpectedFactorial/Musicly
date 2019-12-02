@@ -237,6 +237,10 @@ font-family:arial;
     display:block;
     transition-duration: 250ms;
 }
+#uploader input[type="text"]:hover{
+    background-color: #ababab ;
+    transition-duration: 500ms;
+}
 
 #uploader input[type="file"]{
     background-color:#aaaaaa;
@@ -257,18 +261,6 @@ font-family:arial;
     background-color: #ecbebe;
     border-radius: 5px;
     border: 2px solid red;
-}
-
-#music-player {
-    background-color:#CCCCCC;
-    position: fixed;
-    bottom:0;
-    width: 100%;
-    padding:5px;
-}
-#music-player button{
-    border-radius: 25%;
-    padding:5px;
 }
 
 .tab {
@@ -307,4 +299,58 @@ font-family:arial;
 #ratings{
     width:25%;
     background-color: grey;
+}
+
+#searchform input[type="text"]{
+    width:50%;
+    padding:15px;
+    padding-right:0px;
+    font-size: 16px;
+    background-color:#F3F3F3;
+    border: none;
+    border-bottom:1px solid #666666;
+    color:black;
+    transition-duration: 500ms;
+}
+#searchform input[type="text"]:hover{
+    background-color: #c7c7c7;
+    transition-duration: 500ms;
+}
+#search{
+    height: 30px;
+    background-color: black;
+    color: white;
+    border:0;
+    border-radius: 15px;
+    padding:5px;
+}
+
+#search:hover{
+    background-color:#AAAAAA;
+    cursor:pointer;
+    transition-duration: 500ms;
+    color:black;
+}
+.songtable{
+    width:100%;
+    border-collapse: collapse;
+
+}
+.songtable, tr, td{
+    border:1px grey solid;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.songtable tr:nth-child(even){
+    background-color: #d5d5d5;
+}
+.th{
+    height: 50px;
+    text-align: center;
+    font-weight: bolder;
+    background-color:black;
+    color:white;
+}
+.songlink{
+    text-align: center;
 }

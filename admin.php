@@ -17,8 +17,8 @@
             $sql = "SELECT * FROM songs;";
             $result = mysqli_query($conn,$sql);
         
-            echo "<table border='1'>";
-            echo "<tr><td>Song_Id</td><td>Song_Name</td><td>Song_Artist</td><td>Song_Genre</td><td>File_Name</td><td>Uploader</td><td>Current Rating</td><td>Option</td></tr>\n";
+            echo "<table class='songtable'>";
+            echo "<tr><td class='th'>Song_Id</td><td class='th'>Song_Name</td><td class='th'>Song_Artist</td><td class='th'>Song_Genre</td><td class='th'>File_Name</td><td class='th'>Uploader</td><td class='th'>Current Rating</td><td class='th'>Option</td></tr>\n";
                 while($row = mysqli_fetch_assoc($result)){
                     $filelocation = "uploads/song/" . $row['File_Name'];
                     echo "<tr><td>{$row['Song_Id']}</td><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td>{$row['Song_Genre']}</td><td>{$row['File_Name']}</td><td>{$row['Uploader_id']}</td><td>{$row['Avg_Rating']}</td><td>REPLACE DELETE WITH CODE HERE</td></tr>\n";

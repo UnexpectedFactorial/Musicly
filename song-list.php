@@ -35,7 +35,6 @@
     <?php
     require "header.php";
     ?>
-    <center><h3>Please Select an Option.</h3></center>
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'All Songs')">All Songs</button>
         <button class="tablinks" onclick="openTab(event, 'Top 10')">Top 10</button>
@@ -47,12 +46,12 @@
             $sql = "SELECT * FROM songs;";
             $result = mysqli_query($conn,$sql);
         
-            echo "<table border='1'>";
-            echo "<tr><td>Song Name</td><td>Artist</td><td>Options</td></tr>\n";
+            echo "<table class='songtable'>";
+            echo "<tr><td class='th'>Song Name</td><td class='th'>Artist</td><td class='th'>Options</td></tr>\n";
                 while($row = mysqli_fetch_assoc($result)){
                     $filelocation = "uploads/song/" . $row['File_Name'];
                     $songid = $row['Song_Id'];
-                    echo "<tr><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td><a href = 'songs.php?id=$songid'>Link</a></td></tr>\n";
+                    echo "<tr><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td class='songlink'><a href = 'songs.php?id=$songid'>Link</a></td></tr>\n";
                 }
             echo "</table>";
         ?>
@@ -63,12 +62,12 @@
             $sql = "SELECT * FROM songs ORDER BY Avg_Rating DESC LIMIT 10;";
             $result = mysqli_query($conn,$sql);
             $counter = 1;
-            echo "<table border='1'>";
-            echo "<tr><td>Place</td><td>Song Name</td><td>Artist</td><td>Options</td></tr>\n";
+            echo "<table class='songtable'>";
+            echo "<tr><td class='th'>Place</td><td class='th'>Song Name</td><td class='th'>Artist</td><td class='th'>Options</td></tr>\n";
                 while($row = mysqli_fetch_assoc($result)){
                     $filelocation = "uploads/song/" . $row['File_Name'];
                     $songid = $row['Song_Id'];
-                    echo "<tr><td>$counter</td><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td><a href = 'songs.php?id=$songid'>Link</a></td></tr>\n";
+                    echo "<tr><td>$counter</td><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td class='songlink'><a href = 'songs.php?id=$songid'>Link</a></td></tr>\n";
                     $counter++;
                 }
             echo "</table>";
@@ -76,20 +75,14 @@
     </div>
 
     <div id="Search" class="tabcontent">
-        <h1>SEARCH HERE</h1>
+            <p>Search by Song Name</p>
+            <form  method="post" action="search.inc.php?go"  id="searchform">
+              <input  type="text" name="Songname" placeholder="Search Songs" required>
+              <input  type="submit" name="submit" value="Search" id="search">
+            </form>
+
     </div>
     
-    
-<audio id="player"> </audio>
-    <source id='audioSource' src=""></source>
-
-        <div id="music-player"> 
-          <button onclick="document.getElementById('player').play()">Play</button> 
-          <button onclick="document.getElementById('player').pause()">Pause</button> 
-          <button onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
-          <button onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
-          <button onclick="document.getElementById('player').load()">Replay</button>
-        </div>
 </body>    
 </body>    
 </html>
