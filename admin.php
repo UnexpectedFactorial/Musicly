@@ -29,7 +29,7 @@
 					echo "<td>".$row['File_Name']."</td>";
 					echo "<td>".$row['Uploader_id']."</td>";
 					echo "<td>".$row['Avg_Rating']."</td>";
-					echo "<td><a href=delete.php?Song_Id=".$row['Song_Id']." id='delete'>Delete</a></td>";
+					echo "<td><a href=delete.php?Song_Id=".$row['Song_Id'].">Delete</a></td>";
                 }
                 
             echo "</table>";
