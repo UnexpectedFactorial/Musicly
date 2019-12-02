@@ -21,8 +21,17 @@
             echo "<tr><td class='th'>Song_Id</td><td class='th'>Song_Name</td><td class='th'>Song_Artist</td><td class='th'>Song_Genre</td><td class='th'>File_Name</td><td class='th'>Uploader</td><td class='th'>Current Rating</td><td class='th'>Option</td></tr>\n";
                 while($row = mysqli_fetch_assoc($result)){
                     $filelocation = "uploads/song/" . $row['File_Name'];
-                    echo "<tr><td>{$row['Song_Id']}</td><td>{$row['Song_Name']}</td><td>{$row['Song_Artist']}</td><td>{$row['Song_Genre']}</td><td>{$row['File_Name']}</td><td>{$row['Uploader_id']}</td><td>{$row['Avg_Rating']}</td><td>REPLACE DELETE WITH CODE HERE</td></tr>\n";
+                     echo "<tr>";
+					echo "<td>".$row['Song_Id']."</td>";
+					echo "<td>".$row['Song_Name']."</td>";
+					echo "<td>".$row['Song_Artist']."</td>";
+					echo "<td>".$row['Song_Genre']."</td>";
+					echo "<td>".$row['File_Name']."</td>";
+					echo "<td>".$row['Uploader_id']."</td>";
+					echo "<td>".$row['Avg_Rating']."</td>";
+					echo "<td><a href=delete.php?Song_Id=".$row['Song_Id'].">Delete</a></td>";
                 }
+                
             echo "</table>";
               
           }
@@ -33,5 +42,3 @@
         
         
     </main>
-
-
